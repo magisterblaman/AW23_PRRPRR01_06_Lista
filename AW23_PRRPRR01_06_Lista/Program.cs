@@ -22,6 +22,8 @@ namespace AW23_PRRPRR01_06_Lista {
 				"Pettsson"
 			};
 
+			petNames.Insert(2, "Flugis");
+
 			for (int i = 0; i < petNames.Count; i++) {
 				Console.WriteLine(petNames[i]);
 			}
