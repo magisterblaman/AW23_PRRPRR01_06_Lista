@@ -8,38 +8,34 @@ namespace AW23_PRRPRR01_06_Lista {
 	internal class Program {
 		static void Main(string[] args) {
 
-			//string[] petNames = new string[] { 
-			//	"Miss Saigon",
-			//	"Linus",
-			//	"Findus",
-			//	"Pettsson"
-			//};
+			List<int> uniqueNumbers = new List<int>();
 
-			List<string> petNames = new List<string>() {
-				"Miss Saigon",
-				"Linus",
-				"Findus",
-				"Pettsson"
-			};
+			bool run = true;
 
-			petNames.Insert(2, "Flugis");
+			while (run) {
+				Console.Clear();
+				Console.WriteLine("Mata in ett heltal!");
 
-			for (int i = 0; i < petNames.Count; i++) {
-				Console.WriteLine(petNames[i]);
-			}
-			Console.WriteLine("=======");
+				string numInput = Console.ReadLine();
+				int num = int.Parse(numInput);
 
-			petNames.Add("Ola");
+				if (uniqueNumbers.Contains(num)) {
+					int index = uniqueNumbers.IndexOf(num);
+					uniqueNumbers.RemoveRange(0, index);
+					
+					for (int i = 0; i < uniqueNumbers.Count; i++) {
+						Console.WriteLine(uniqueNumbers[i]);
+					}
+				} else {
+					uniqueNumbers.Add(num);
+				}
 
-			for (int i = 0; i < petNames.Count; i++) {
-				Console.WriteLine(petNames[i]);
-			}
-			Console.WriteLine("=======");
+				Console.WriteLine("Vill du köra igen?");
+				string runAgainInput = Console.ReadLine().ToLower();
 
-			petNames.RemoveAt(2);
-
-			for (int i = 0; i < petNames.Count; i++) {
-				Console.WriteLine(petNames[i]);
+				if (runAgainInput == "nej") {
+					run = false;
+				}
 			}
 
 		}
